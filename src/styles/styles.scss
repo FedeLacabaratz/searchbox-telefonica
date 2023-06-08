@@ -1,0 +1,12 @@
+@import './components/cards.scss';
+@import './components/searchBar.scss';
+
+.mainContainer {
+    height: 100%;
+    width: auto;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+}

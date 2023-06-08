@@ -1,0 +1,12 @@
+.mainContainer {
+    .upperFilters {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+    }
+    .lowerFilter {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+    }
+}

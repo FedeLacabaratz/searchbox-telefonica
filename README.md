@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Book Search Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React application that allows you to filter and search for books based on different criteria such as country, version, and title.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+1. Clone the repository or download the code.
+2. Navigate to the project directory.
+3. Run `npm install` to install the dependencies.
+4. Run `npm start` to start the development server.
 
-### `yarn start`
+## Application Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The application is structured as follows:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- `src/components/SearchBar.jsx`: The main component that handles the filtering and searching of books.
+- `src/components/Card.jsx`: The secondary component that handles every card when automatically mapped after being filtered.
+- `src/hooks/useBookFilter.js`: A custom hook that encapsulates the filtering logic.
+- `src/data/top50Books.js`: A mock data file containing a list of books.
+- `src/styles`: In here we will store our reset file that resets our browser inconsistencies like default line, heights, etc. Then we will have an entire structure of subfolders that will eventualy be imported into our main style.scss file. We use Sass to ease up the css synthaxis when styling our web page. 
 
-### `yarn test`
+## Component Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The component structure of the application is as follows:
 
-### `yarn build`
+- `SearchBar`: The main component that provides the search functionality and renders the filter options and the filtered book list.
+- `Card`: The scondary component that will reuse every card and convert filtered data to a more friendly look & feel list of results.
+  - `useBookFilter`: A custom hook that encapsulates the filtering logic and returns the necessary variables and functions for filtering.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To use the Book Search application, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Import the `SearchBar` component into your React application: `import SearchBar from './components/SearchBar';`
+2. Render the `SearchBar` component in your application: `<SearchBar />`
+1. Import the `Card` component into your React application: `import Card from './components/Card';`
+3. Render the `Card` component in your application when submiting search criteria: `<Card />`
 
-### `yarn eject`
+The component provides the following features:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Filtering by title: Enter a search term in the text field to filter the books by their title.
+- Filtering by country: Select one or more countries from the dropdown to filter the books by their country.
+- Filtering by version: Select one or more versions from the dropdown to filter the books by their version.
+- Clearing filters: Click the "Clear All Filters" button to reset all filters.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Custom Hook - `useBookFilter`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The `useBookFilter` hook encapsulates the filtering logic and returns the necessary variables and functions for filtering:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `filteredData`: The filtered list of books based on the selected filters.
+- `selectedCountry`: The selected country filter.
+- `selectedVersion`: The selected version filter.
+- `searchTerm`: The entered search term.
+- `handleCountryChange`: A function to handle changes in the country filter.
+- `handleVersionChange`: A function to handle changes in the version filter.
+- `handleSearchChange`: A function to handle changes in the search term.
+- `clearFilters`: A function to clear all filters.
 
-## Learn More
+To use the `useBookFilter` hook, import it into your component:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```jsx
+import useBookFilter from './hooks/useBookFilter';
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Finally, use the returned variables and functions to implement the filtering functionality in your component.
 
-### Code Splitting
+Mock Data - top50Books.js
+The top50Books.js file contains a mock list o50f books used for testing and demonstration purposes. You can replace this topBooks with your own book data or fetch it from an API.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Now that is it! You now have a Book Search application that allows you to filter and search for books based on different criteria. Feel free to customize and enhance it according to your requirements.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you have any questions or need further assistance, please let us know to our email: lacarq@gmail.com.

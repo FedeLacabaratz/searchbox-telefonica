@@ -1,0 +1,48 @@
+.mainContainer {
+  .cardMainContainer {
+    padding-left: 0rem;
+    ul,
+    li {
+      list-style-type: none !important;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 1px solid lightgray;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem !important;
+  }
+
+  .cardText,
+  .cardCountry,
+  .cardVersion {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 1rem;
+    label {
+      font-weight: 600;
+    }
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .cardText {
+    padding-top: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .cardCountry {
+    font-size: 1.2rem;
+  }
+
+  .cardVersion {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+  }
+}
