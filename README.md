@@ -56,10 +56,7 @@ The `useBookFilter` hook encapsulates the filtering logic and returns the necess
 - `handleSearchChange`: A function to handle changes in the search term.
 - `clearFilters`: A function to clear all filters.
 
-To use the `useBookFilter` hook, import it into your component:
-
-```jsx
-import useBookFilter from './hooks/useBookFilter';
+To use the `useBookFilter` hook, import it into your component.
 
 Finally, use the returned variables and functions to implement the filtering functionality in your component.
 
