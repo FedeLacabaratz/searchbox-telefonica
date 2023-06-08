@@ -48,8 +48,8 @@ The component provides the following features:
 The `useBookFilter` hook encapsulates the filtering logic and returns the necessary variables and functions for filtering:
 
 - `filteredData`: The filtered list of books based on the selected filters.
-- `selectedCountry`: The selected country filter.
-- `selectedVersion`: The selected version filter.
+- `selectedCountries`: The selected country filter.
+- `selectedVersions`: The selected version filter.
 - `searchTerm`: The entered search term.
 - `handleCountryChange`: A function to handle changes in the country filter.
 - `handleVersionChange`: A function to handle changes in the version filter.

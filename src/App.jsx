@@ -1,37 +1,37 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import SearchBar from "./components/SearchBar";
-import top100Books from "./data/top50Books";
+import top50Books from "./data/top50Books";
 import useBookFilter from "./hooks/useBookFilter";
 import Card from "./components/Card";
 
 const App = () => {
   const {
     filteredData,
-    selectedCountry,
-    selectedVersion,
+    selectedCountries,
+    selectedVersions,
     searchTerm,
     handleCountryChange,
     handleVersionChange,
     handleSearchChange,
     handleClearFilters,
-  } = useBookFilter(top100Books);
+  } = useBookFilter(top50Books);
 
   return (
     <main className="mainContainer">
       <SearchBar
         searchTerm={searchTerm}
-        selectedCountry={selectedCountry}
-        selectedVersion={selectedVersion}
+        selectedCountries={selectedCountries}
+        selectedVersions={selectedVersions}
         handleClearFilters={handleClearFilters}
         handleCountryChange={handleCountryChange}
         handleVersionChange={handleVersionChange}
         handleSearchChange={handleSearchChange}
       />
-      {!!filteredData && (
+      {filteredData && (
         <ul className="cardMainContainer">
           {filteredData.map((d) => (
-            <li key={`${d?.id}`} className="cardContainer">
+            <li key={d?.id} className="cardContainer">
               <Card data={d} />
             </li>
           ))}

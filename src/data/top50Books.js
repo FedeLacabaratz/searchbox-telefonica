@@ -1,5 +1,5 @@
-// Top 100 books based on popular films
-const top100Books = [
+// Top 50 books based on popular films
+const top50Books = [
   { id: 1, country: 'Andorra', text: 'The Shawshank Redemption', version: '1.0' },
   { id: 2, country: 'Argelia', text: 'The Godfather: Part II', version: '1.1' },
   { id: 3, country: 'Argentina', text: 'The Godfather', version: '1.2' },
@@ -52,4 +52,4 @@ const top100Books = [
   { id: 50, country: 'Zámbia', text: 'Cinema Paradiso', version: '4.3' },
 ];
 
-export default top100Books
+export default top50Books

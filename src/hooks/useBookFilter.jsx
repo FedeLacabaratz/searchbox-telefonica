@@ -2,19 +2,22 @@ import { useState, useEffect } from 'react';
 
 const useBookFilter = (books) => {
   const [filteredData, setFilteredData] = useState(books);
-  const [selectedCountry, setSelectedCountry] = useState([]);
-  const [selectedVersion, setSelectedVersion] = useState([]);
+  const [selectedCountries, setSelectedCountries] = useState([]);
+  const [selectedVersions, setSelectedVersions] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleCountryChange = (event, values) => {
-    setSelectedCountry(values);
+    event.preventDefault()
+    setSelectedCountries(values);
   };
 
   const handleVersionChange = (event, values) => {
-    setSelectedVersion(values);
+    event.preventDefault()
+    setSelectedVersions(values);
   };
 
   const handleSearchChange = (event) => {
+    event.preventDefault()
     const { value } = event.target;
     setSearchTerm(value);
   };
@@ -22,38 +25,38 @@ const useBookFilter = (books) => {
   useEffect(() => {
     let newData = books;
 
-    if (!!selectedCountry.length) {
+    if (selectedCountries.length) {
       newData = newData.filter((item) =>
-        selectedCountry.includes(item.country)
+        selectedCountries.includes(item.country)
       );
     }
 
-    if (!!selectedVersion.length) {
+    if (selectedVersions.length) {
       newData = newData.filter((item) =>
-        selectedVersion.includes(item.version)
+        selectedVersions.includes(item.version)
       );
     }
 
-    if (!!searchTerm) {
+    if (searchTerm) {
       newData = newData.filter((item) =>
         item.text.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
     setFilteredData(newData);
-  }, [books, selectedCountry, selectedVersion, searchTerm]);
+  }, [books, selectedCountries, selectedVersions, searchTerm]);
 
   const handleClearFilters = () => {
-    setSelectedCountry([])
-    setSelectedVersion([])
+    setSelectedCountries([])
+    setSelectedVersions([])
     setSearchTerm('')
     setFilteredData(books)
   };
 
   return {
     filteredData,
-    selectedCountry,
-    selectedVersion,
+    selectedCountries,
+    selectedVersions,
     searchTerm,
     handleCountryChange,
     handleVersionChange,
