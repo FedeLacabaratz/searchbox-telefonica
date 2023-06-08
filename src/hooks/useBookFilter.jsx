@@ -22,29 +22,22 @@ const useBookFilter = (books) => {
     setSearchTerm(value);
   };
 
+  const filters = {
+    filterByCountry: item => selectedCountries.includes(item.country),
+    filterByVersion: item => selectedVersions.includes(item.version),
+    filterByTerm: item => item.text.toLowerCase().includes(searchTerm.toLowerCase())
+  }
+
   useEffect(() => {
-    let newData = books;
+    let enabledFilters = []
+    selectedCountries.length && enabledFilters.push(filters.filterByCountry)
+    selectedVersions.length && enabledFilters.push(filters.filterByVersion)
+    searchTerm && enabledFilters.push(filters.filterByTerm)
 
-    if (selectedCountries.length) {
-      newData = newData.filter((item) =>
-        selectedCountries.includes(item.country)
-      );
-    }
+    let newData = books.filter(item => enabledFilters.every(filter => filter(item)))
 
-    if (selectedVersions.length) {
-      newData = newData.filter((item) =>
-        selectedVersions.includes(item.version)
-      );
-    }
-
-    if (searchTerm) {
-      newData = newData.filter((item) =>
-        item.text.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-
-    setFilteredData(newData);
-  }, [books, selectedCountries, selectedVersions, searchTerm]);
+    setFilteredData(newData)
+  }, [books, selectedCountries, selectedVersions, searchTerm])
 
   const handleClearFilters = () => {
     setSelectedCountries([])
