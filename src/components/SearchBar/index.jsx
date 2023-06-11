@@ -26,7 +26,7 @@ const SearchBar = ({
   return (
     <>
       <div className="upperFilters">
-        <Stack spacing={3} sx={{ width: "30rem", marginRight: "1rem" }}>
+        <Stack spacing={3} sx={{ width: "30rem", marginRight: "1rem !important" }}>
           <Autocomplete
             id="tags-outlined"
             multiple
@@ -43,7 +43,7 @@ const SearchBar = ({
             )}
           />
         </Stack>
-        <Stack spacing={3} sx={{ width: "30rem", marginRight: "0.5rem" }}>
+        <Stack spacing={3} sx={{ width: "30rem", marginRight: "0.5rem !important" }}>
           <Autocomplete
             id="tags-outlined"
             multiple

@@ -2,11 +2,13 @@
     .upperFilters {
         display: flex;
         flex-direction: row;
-        margin-bottom: 1rem;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 1rem !important;
     }
     .lowerFilter {
         display: flex;
         flex-direction: row;
-        margin-bottom: 1rem;
+        margin-bottom: 1rem !important;
     }
 }
